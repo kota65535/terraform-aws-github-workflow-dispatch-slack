@@ -299,8 +299,8 @@ terraform.rc
 # Terraform variable definition files for sensitive variables
 secret.auto.tfvars
 
-# Infra CLI binary
-infra-cli-*
+# Poetry local configuration file
+!poetry.toml
 
 # IntelliJ IDEA for subprojects
 **/.idea/*
