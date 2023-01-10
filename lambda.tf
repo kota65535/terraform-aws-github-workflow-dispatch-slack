@@ -2,7 +2,7 @@ resource "aws_lambda_function" "main" {
   function_name    = var.lambda_name
   handler          = "function.lambda_handler"
   filename         = data.archive_file.lambda_zip.output_path
-  runtime          = "python${local.python_version}"
+  runtime          = "python${local.lambda_python_version}"
   role             = aws_iam_role.lambda.arn
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
   layers           = [aws_lambda_layer_version.version.arn]

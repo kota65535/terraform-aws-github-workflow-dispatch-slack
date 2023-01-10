@@ -1,5 +1,5 @@
 data "external" "lambda_layer" {
-  program = ["${local.lambda_dir}/scripts/create_lambda_layer.sh", local.python_version, "${local.lambda_dir}/files/requirements.txt"]
+  program = ["${local.lambda_dir}/scripts/create_lambda_layer.sh", local.lambda_python_version, "${local.lambda_dir}/files/requirements.txt"]
 }
 
 data "archive_file" "layer_zip" {
@@ -12,6 +12,6 @@ data "archive_file" "layer_zip" {
 resource "aws_lambda_layer_version" "version" {
   layer_name          = var.lambda_name
   filename            = data.archive_file.layer_zip.output_path
-  compatible_runtimes = ["python${local.python_version}"]
+  compatible_runtimes = ["python${local.lambda_python_version}"]
   source_code_hash    = data.archive_file.layer_zip.output_base64sha256
 }
