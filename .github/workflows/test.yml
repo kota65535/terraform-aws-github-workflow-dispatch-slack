@@ -32,6 +32,13 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - name: Prepare secret.auto.tfvars
+        run: |
+          cat <<-EOF > secret.auto.tfvars
+            github_token             = "${{ secrets.PERSONAL_TOKEN }}"
+            slack_bot_token          = "${{ secrets.SLACK_BOT_TOKEN }}"
+            slack_verification_token = "${{ secrets.SLACK_VERIFICATION_TOKEN }}"
+          EOF
       - name: Run terraform init
         run: terraform init
       - name: Run terraform apply
