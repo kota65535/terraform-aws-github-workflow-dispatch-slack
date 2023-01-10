@@ -2,7 +2,7 @@ resource "aws_lambda_function" "main" {
   function_name    = var.lambda_name
   handler          = "function.lambda_handler"
   filename         = data.archive_file.lambda_zip.output_path
-  runtime          = "python${local.python_version}"
+  runtime          = "python${local.lambda_python_version}"
   role             = aws_iam_role.lambda.arn
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
   layers           = [aws_lambda_layer_version.version.arn]
@@ -35,15 +35,15 @@ data "archive_file" "lambda_zip" {
   output_path = local.lambda_zip_path
 
   source {
-    content  = file("${path.module}/src/function.py")
+    content  = file("${local.lambda_dir}/src/function.py")
     filename = "function.py"
   }
   source {
-    content  = file("${path.module}/src/config.py")
+    content  = file("${local.lambda_dir}/src/config.py")
     filename = "config.py"
   }
   source {
-    content  = file("${path.module}/src/common.py")
+    content  = file("${local.lambda_dir}/src/common.py")
     filename = "common.py"
   }
 }
