@@ -35,15 +35,15 @@ data "archive_file" "lambda_zip" {
   output_path = local.lambda_zip_path
 
   source {
-    content  = file("${path.module}/src/function.py")
+    content  = file("${local.lambda_dir}/src/function.py")
     filename = "function.py"
   }
   source {
-    content  = file("${path.module}/src/config.py")
+    content  = file("${local.lambda_dir}/src/config.py")
     filename = "config.py"
   }
   source {
-    content  = file("${path.module}/src/common.py")
+    content  = file("${local.lambda_dir}/src/common.py")
     filename = "common.py"
   }
 }
