@@ -31,7 +31,7 @@ if [[ ! -f ${REQUIREMENTS_FILE} ]]; then
   exit 1
 fi
 
-if ! command -v docker; then
+if ! command -v docker >/dev/null 2>&1; then
     eecho "[ERROR] docker command not found."
     exit 1
 fi
