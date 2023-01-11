@@ -11,7 +11,7 @@ Usage:
 Description:
   Create lambda layer zip file according to the requirements file.
 Requirements:
-  docker, jq
+  docker
 Arguments:
   python-version    : Python version
   requirements-file : Path of pip requirements file
@@ -47,5 +47,5 @@ cp "${REQUIREMENTS_FILE}" "${DEST_DIR}"
   rm -rf python/bin
 
   # Return JSON for Terraform
-  jq -n --arg path "${DEST_DIR}" '{"path":$path}'
+  docker run -i stedolan/jq -n --arg path "${DEST_DIR}" '{"path":$path}'
 )
