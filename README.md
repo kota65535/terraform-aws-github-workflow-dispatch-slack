@@ -8,4 +8,4 @@ If you are using GitHub Actions, try [github-workflow-dispatch-slack-action](htt
 
 ## Overview
 
-![img.png](img.png)
+![img.png](https://github.com/kota65535/terraform-aws-github-workflow-dispatch-slack/raw/main/img.png)
