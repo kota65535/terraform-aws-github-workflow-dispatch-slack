@@ -31,6 +31,11 @@ if [[ ! -f ${REQUIREMENTS_FILE} ]]; then
   exit 1
 fi
 
+if ! command -v docker; then
+    eecho "[ERROR] docker command not found."
+    exit 1
+fi
+
 DEST_DIR=$(mktemp -d)
 
 cp "${REQUIREMENTS_FILE}" "${DEST_DIR}"
