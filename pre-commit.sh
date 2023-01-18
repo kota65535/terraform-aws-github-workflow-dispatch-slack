@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-set -eu
+set -euo pipefail
 
 # Install pre-commit hook
 if [[ $0 != ".git/hooks/pre-commit" ]]; then
-  cp -f "$0" .git/hooks/pre-commit
+  cp "$0" .git/hooks/pre-commit
 fi
 
 # Update requirements.txt
