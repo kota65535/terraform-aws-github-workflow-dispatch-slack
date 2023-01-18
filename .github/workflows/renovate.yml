@@ -1,12 +1,11 @@
 name: Update renovate PR
 
 on:
-  push:
+  pull_request:
     branches:
       - 'renovate/*'
     paths:
       - 'lambda/poetry.lock'
-  workflow_dispatch:
 
 jobs:
   show-context:
