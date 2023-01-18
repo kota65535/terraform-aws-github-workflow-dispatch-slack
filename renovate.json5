@@ -9,5 +9,8 @@
   "labels": [
     "dependencies"
   ],
-  "schedule": "before 1am on Monday"
+  "schedule": "before 1am on Monday",
+  "ignorePaths": [
+    "lambda/requirements.txt"
+  ]
 }
