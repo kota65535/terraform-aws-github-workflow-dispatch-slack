@@ -1,5 +1,5 @@
 data "external" "lambda_layer" {
-  program = ["${local.lambda_dir}/scripts/create_lambda_layer.sh", local.lambda_python_version, "${local.lambda_dir}/files/requirements.txt"]
+  program = ["${local.lambda_dir}/scripts/create_lambda_layer.sh", local.lambda_python_version, "${local.lambda_dir}/requirements.txt"]
 }
 
 data "archive_file" "layer_zip" {
