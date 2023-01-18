@@ -22,6 +22,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        fetch-depth: 0
       - name: Setup poetry
         uses: ./.github/actions/setup-poetry
         with:
