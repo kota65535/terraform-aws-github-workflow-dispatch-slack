@@ -4,8 +4,6 @@ on:
   pull_request:
     branches:
       - 'renovate/*'
-    paths:
-      - 'lambda/poetry.lock'
 
 jobs:
   show-context:
