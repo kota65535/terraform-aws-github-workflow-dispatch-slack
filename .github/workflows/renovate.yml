@@ -35,5 +35,5 @@ jobs:
       - name: Commit & push
         run: |
           git add .
-          git commit --amend
+          git commit --amend --no-edit
           git push -f origin HEAD
