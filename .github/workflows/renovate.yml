@@ -1,0 +1,35 @@
+name: Update renovate PR
+
+on:
+  push:
+    branches:
+      - 'renovate/*'
+    paths:
+      - 'lambda/poetry.lock'
+  workflow_dispatch:
+
+jobs:
+  show-context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show github context object
+        run: echo $JSON
+        env:
+          JSON: ${{ toJSON(github) }}
+
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup poetry
+        uses: ./.github/actions/setup-poetry
+        with:
+          working-directory: lambda
+      - name: Run pre-commit hook script
+        run: ./pre-commit.sh
+      - name: Commit & push
+        run: |
+          git add .
+          git commit --amend
+          git push -f origin HEAD

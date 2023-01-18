@@ -1,5 +1,5 @@
-name: Setup tools
-description: Setup tools according to .tool-versions
+name: Setup terraform
+description: Setup terraform according to .tool-versions
 
 inputs:
   aws-access-key-id:
