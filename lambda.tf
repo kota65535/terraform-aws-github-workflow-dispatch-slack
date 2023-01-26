@@ -25,8 +25,8 @@ resource "aws_lambda_permission" "api_gateway" {
   source_account = data.aws_caller_identity.self.account_id
 }
 
-resource "random_string" main {
-  length = 8
+resource "random_string" "main" {
+  length  = 8
   special = false
 }
 
