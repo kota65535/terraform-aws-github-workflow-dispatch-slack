@@ -23,7 +23,7 @@ class GitHubClient:
 
     # cf. https://docs.github.com/en/rest/repos/repos#get-a-repository
     def get_repo(self, owner, repo):
-        res = requests.post(f"{GitHubClient.base_url}/repos/{owner}/{repo}",
+        res = requests.get(f"{GitHubClient.base_url}/repos/{owner}/{repo}",
                             headers={
                                 "Accept": "application/vnd.github+json",
                                 "Authorization": f"token {self.token}"
