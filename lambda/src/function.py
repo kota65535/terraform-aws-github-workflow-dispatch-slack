@@ -81,15 +81,22 @@ def dispatch_workflow(value: ActionValue):
 
     client = GitHubClient(config.github_token)
 
-    if not req["ref"]:
+    if "ref" in req:
+        ref = req["ref"]
+    else:
         repo = client.get_repo(req["owner"], req["repo"])
-        req["ref"] = repo["default_branch"]
+        ref = repo["default_branch"]
+
+    if "inputs" in req:
+        inputs = req["inputs"]
+    else:
+        inputs = {}
 
     client.dispatch_workflow(
         req["owner"],
         req["repo"],
         req["workflow_id"],
-        common.DispatchWorkflowRequest(req["ref"], req["inputs"]))
+        common.DispatchWorkflowRequest(ref, inputs))
 
 
 def update_message(message, user_id, response_url, choice):

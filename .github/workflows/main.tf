@@ -17,7 +17,7 @@ provider "aws" {
   region = "ap-northeast-1"
 }
 
-module "workflow_dispatcher" {
+module "workflow_dispatch_slack" {
   source = "../../"
 
   github_token             = var.github_token
