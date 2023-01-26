@@ -58,3 +58,9 @@ jobs:
           inputs: '{"foo":"1","bar":"2"}'
           channel: github
           slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
+      - name: Dispatch event
+        uses: kota65535/github-workflow-dispatch-slack-action@main
+        with:
+          workflow: do-something.yml
+          channel: github
+          slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
