@@ -3,13 +3,31 @@
   "extends": [
     "config:base",
     ":timezone(Asia/Tokyo)",
-    ":prHourlyLimitNone",
-    "group:allNonMajor"
+    ":prHourlyLimitNone"
   ],
   "labels": [
     "dependencies"
   ],
   "schedule": "before 1am on Monday",
+  "packageRules": [
+    // based on group:allNonMajor, excluding tools
+    // cf. https://docs.renovatebot.com/presets-group/#groupallnonmajor
+    {
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch",
+      "matchPackagePatterns": [
+        "*"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "excludePackageNames": [
+        "terraform",
+        "python"
+      ]
+    }
+  ],
   "gitIgnoredAuthors": [
     "41898282+github-actions[bot]@users.noreply.github.com"
   ],
