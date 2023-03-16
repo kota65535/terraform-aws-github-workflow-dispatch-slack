@@ -38,5 +38,5 @@ jobs:
       - name: Commit & push
         run: |
           git add .
-          git commit --amend --no-edit
-          git push -f origin HEAD
+          git commit -m 'update requirements.txt'
+          git push origin HEAD
