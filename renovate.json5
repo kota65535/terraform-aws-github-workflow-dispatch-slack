@@ -10,6 +10,9 @@
     "dependencies"
   ],
   "schedule": "before 1am on Monday",
+  "gitIgnoredAuthors": [
+    "41898282+github-actions[bot]@users.noreply.github.com"
+  ],
   "ignorePaths": [
     "lambda/requirements.txt"
   ]

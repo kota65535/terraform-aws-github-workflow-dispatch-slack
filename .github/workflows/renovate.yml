@@ -29,9 +29,10 @@ jobs:
         with:
           working-directory: lambda
       - name: Configure git
-        run: |
-          git config --global user.name "Tomohiko Ozawa"
-          git config --global user.email "kota65535@gmail.com"
+        uses: kota65535/github-git-config-action@main
+        with:
+          user.name: github-actions[bot]
+          user.email: 41898282+github-actions[bot]@users.noreply.github.com
       - name: Run pre-commit hook script
         run: ./pre-commit.sh
       - name: Commit & push
