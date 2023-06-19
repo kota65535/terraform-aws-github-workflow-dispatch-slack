@@ -23,7 +23,8 @@
         "patch"
       ],
       "excludePackageNames": [
-        "python"
+        "python",
+        "poetry"
       ],
       "excludePackagePatterns": [
         "^(hashicorp/)?terraform$",
