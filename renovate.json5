@@ -23,15 +23,26 @@
         "patch"
       ],
       "excludePackageNames": [
-        "terraform",
         "python"
+      ],
+      "excludePackagePatterns": [
+        "^(hashicorp/)?terraform$",
+      ]
+    },
+    // Terraform
+    {
+      "groupName": "terraform",
+      "groupSlug": "terraform",
+      "matchPackagePatterns": [
+        "^(hashicorp/)?terraform$",
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
       ]
     }
   ],
-  "gitIgnoredAuthors": [
-    "41898282+github-actions[bot]@users.noreply.github.com"
-  ],
   "ignorePaths": [
-    "lambda/requirements.txt"
+    "**/requirements.txt"
   ]
 }
