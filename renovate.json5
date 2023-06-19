@@ -42,7 +42,12 @@
       ]
     }
   ],
+  // Ignore updates by CI
+  "gitIgnoredAuthors": [
+    "41898282+github-actions[bot]@users.noreply.github.com"
+  ],
+  // Ignore because it will be created by Poetry
   "ignorePaths": [
-    "**/requirements.txt"
+    "lambda/requirements.txt"
   ]
 }
