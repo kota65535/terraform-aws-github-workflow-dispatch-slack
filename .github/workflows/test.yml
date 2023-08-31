@@ -36,7 +36,6 @@ jobs:
         run: |
           cat <<-EOF > secret.auto.tfvars
             github_token             = "${{ secrets.PERSONAL_TOKEN }}"
-            slack_bot_token          = "${{ secrets.SLACK_BOT_TOKEN }}"
             slack_verification_token = "${{ secrets.SLACK_VERIFICATION_TOKEN }}"
           EOF
       - name: Run terraform init
