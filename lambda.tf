@@ -10,7 +10,6 @@ resource "aws_lambda_function" "main" {
   environment {
     variables = {
       GITHUB_TOKEN             = var.github_token
-      SLACK_BOT_TOKEN          = var.slack_bot_token
       SLACK_VERIFICATION_TOKEN = var.slack_verification_token
     }
   }
