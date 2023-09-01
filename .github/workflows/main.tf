@@ -21,6 +21,5 @@ module "workflow_dispatch_slack" {
   source = "../../"
 
   github_token             = var.github_token
-  slack_bot_token          = var.slack_bot_token
   slack_verification_token = var.slack_verification_token
 }
