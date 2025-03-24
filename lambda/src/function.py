@@ -104,9 +104,9 @@ def update_message(message, user_id, response_url, choice):
 
     # Append result text
     if choice:
-        text = f"Approved by <@{user_id}>."
+        text = f"👍 Approved by <@{user_id}>."
     else:
-        text = f"Cancelled by <@{user_id}>."
+        text = f"❌ Cancelled by <@{user_id}>."
 
     for i, a in enumerate(message["attachments"]):
         for j, b in enumerate(a["blocks"]):
